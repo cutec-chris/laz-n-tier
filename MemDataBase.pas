@@ -884,7 +884,7 @@ begin
         Move(Buffer^, RecBuf[1], DataSize);
     end;
     if not (State in [dsCalcFields, dsFilter, dsNewValue]) then
-      DataEvent(deFieldChange, LongInt(Field));
+      DataEvent(deFieldChange, Int64(Field));
   end;
 end;
 
@@ -1468,7 +1468,7 @@ end;
 
 procedure TMemDB.Sort;
 var
-  Pos: TBookmarkType;
+  Pos: string;
 begin
   if Active and (FRecords <> nil) and (FRecords.Count > 0) then
   begin
@@ -1634,7 +1634,7 @@ begin
     FField.Modified := True;
   if FModified then
   try
-    FDataSet.DataEvent(deFieldChange, LongInt(FField));
+    FDataSet.DataEvent(deFieldChange, Int64(FField));
   except
     //Application.HandleException(Self);
   end;

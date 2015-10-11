@@ -2,22 +2,23 @@
   This source is only used to compile and install the package.
  }
 
-unit DBNetProcessor; 
+unit DBNetProcessor;
 
 interface
 
 uses
   OnLineQuery, SynaSSockets, IniVarLib, ClientProc, MD5, MemDBUtils, 
   ServerProc, SynaCSockets, NetConnection, ZeosDataServer, ZeosProv, 
-  OnlineQueryReg, DataProcUtils, SynaSockUtils, MemDataBase, LazarusPackageIntf;
+  OnlineQueryReg, DataProcUtils, SynaSockUtils, MemDataBase, NTConnection, 
+  LazarusPackageIntf;
 
 implementation
 
-procedure Register; 
+procedure Register;
 begin
-  RegisterUnit('OnlineQueryReg', @OnlineQueryReg.Register); 
-end; 
+  RegisterUnit('OnlineQueryReg', @OnlineQueryReg.Register);
+end;
 
 initialization
-  RegisterPackage('DBNetProcessor', @Register); 
+  RegisterPackage('DBNetProcessor', @Register);
 end.
